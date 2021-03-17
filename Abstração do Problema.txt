@@ -1,0 +1,7 @@
+Prever a evolução do contágio por COVID-19 com base em um número de dias dado
+
+-> Receber um número INTEIRO (N) = quantidade de dias
+-> N PRECISA ser maior que 0
+-> Rejeitar QUALQUER outro tipo de input
+
+-> D = N
