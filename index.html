@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- ========== METAS ========== -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19 Counter</title>
+    <title>D3 - COVID-19 Counter</title>
 
-
-    <style>
-        div{
-            width: 300px;
-            height: 300px;
-            border: 2px solid black;
-        }
-    </style>
-
+    <!-- ========== LINKS ========== -->
+    <link rel="icon" href="img/icon_d3.png">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-    <input id="valor" type="number">
-    <input id="submit" type="submit">
-    <div id="resultado">
-        <ul>
-        </ul>
-    </div>
-    
+<body>
+    <!-- ========== LOGO ========== -->
+    <header id="logo-container">        
+        <a href="https://d3.do/" target="_blank">
+            <img src="img/logo_d3.svg" alt="Logo D3" style="width: 70px;">            
+        </a>        
+    </header>
+
+    <!-- ========== PRINCIPAL ========== -->
+    <main>
+        <!-- ========== DESCRIÇÃO ========== -->
+        <div id="info-area">
+            <h1>Projetor de <br> contaminação <br> por COVID-19</h1>
+
+            <h2>Insira um valor em dias e será calculada a <br> evolução do contágio por COVID-19 no mundo.</h2>
+        </div>
+
+        <!-- ========== ÁREA DE CÁLCULO ========== -->
+        <div id="input-area">
+
+            <!-- ========== INPUT VALOR ========== -->
+            <input id="valor" type="number" placeholder="Digite um valor">
+
+            <!-- ========== BOTÃO DE AÇÃO ========== -->
+            <button id="submit" type="submit">Calcular</button>
+
+            <!-- ========== RESULTADO ========== -->
+            <div id="resultado">
+                <ul>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
 </body>
 
 <script>
     
-    document.querySelector('#submit').addEventListener('click', function(e){
-        let valor = Number(document.querySelector('#valor').value)
-        predict(valor)
-    })
-
-
-    function predict(dias){
- 
-        // Rejeitar valores menores que 0
-        if(dias > 0){
-
-            // Número total de casos confirmados no Brasil até o dia 17/03/2021
-            let casosConfirmados = 11706639
-            // Taxa de transmissão estipulada no Brasil até o dia 17/03/2021
-            let taxaTransmissao = 1.23
-            console.log("Total de dias: " + dias)
-                       
-            let result = document.querySelector('#resultado')
-
-            for(count = 1; count <= dias; count+=1){
-
-                result.innerHTML = result.innerHTML + '<li>' + count + ' -> ' + casosConfirmados + '</li>'
-                casosConfirmados = casosConfirmados * taxaTransmissao
-
-            }
-        }        
-        else{
-            console.log("Por favor insira um valor maior que 0.")
-        }
-    }
+    
 
  
 
 </script>
-<!-- <script src="js/script.js"></script> -->
+<script src="js/script.js"></script>
 
 </html>
