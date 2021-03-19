@@ -2,9 +2,14 @@ document.querySelector('#submit').addEventListener('click', function(e){
     let valor = Number(document.querySelector('#valor').value);
     predict(valor);
 })
-
 document.querySelector("#valor").addEventListener('click', function(e){
     apagarInput()
+});
+document.querySelector('#valor').addEventListener("keyup", function(e){
+    if(e.keyCode === 13){
+        let valor = Number(document.querySelector('#valor').value);
+        predict(valor);
+    }
 });
 
 
@@ -23,7 +28,8 @@ function predict(dias){
 
         result.innerHTML = ''
 
-        for(count = 1; count <= dias; count+=1){
+        // Uma pessoa infectada com o vírus pode começar a transmití-lo na média de 5 dias
+        for(count = 1; count <= dias; count+=5){
             
             result.innerHTML = result.innerHTML + '<li>' + count + ' 🡆 ' + casosConfirmados.toLocaleString('en-US') + '</li>';
             casosConfirmados = casosConfirmados * taxaTransmissao;
