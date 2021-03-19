@@ -19,7 +19,7 @@ function predict(dias){
 
         for(count = 1; count <= dias; count+=1){
 
-            result.innerHTML = result.innerHTML + '<li>' + count + ' 🡆 ' + casosConfirmados + '</li>'
+            result.innerHTML = result.innerHTML + '<li>' + count + ' 🡆 ' + casosConfirmados.toLocaleString('en-US') + '</li>'
             casosConfirmados = casosConfirmados * taxaTransmissao
 
         }
