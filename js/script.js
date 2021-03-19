@@ -21,8 +21,10 @@ function predict(dias){
                    
         let result = document.querySelector('#resultado');
 
-        for(count = 1; count <= dias; count+=1){
+        result.innerHTML = ''
 
+        for(count = 1; count <= dias; count+=1){
+            
             result.innerHTML = result.innerHTML + '<li>' + count + ' 🡆 ' + casosConfirmados.toLocaleString('en-US') + '</li>';
             casosConfirmados = casosConfirmados * taxaTransmissao;
             
