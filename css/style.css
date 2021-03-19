@@ -82,7 +82,7 @@ button:hover{
     border: 2px solid #FFF;
     margin-top: 20px;
     padding: 20px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #resultado li{
